@@ -1,0 +1,454 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header with logo */
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom-left-radius: 15px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+/* Main content */
+.main-content {
+    padding-top: 100px;
+}
+
+/* Headlines section */
+.headlines-section {
+    background: linear-gradient(135deg, #dc143c, #8b0000);
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.headlines-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-headline {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+.breaking-news {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.breaking-label {
+    background: #ff0000;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    margin-right: 15px;
+    border-radius: 5px;
+    animation: pulse 2s infinite;
+}
+
+.breaking-text {
+    font-weight: 500;
+}
+
+/* News ticker */
+.news-ticker {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+    font-size: 1.1em;
+}
+
+/* Video section */
+.video-section {
+    padding: 40px 20px;
+    background: #2a2a2a;
+}
+
+/* Live Stream Card */
+.live-stream-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.live-stream-card:hover {
+    transform: translateY(-5px);
+}
+
+.stream-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #000;
+    overflow: hidden;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.stream-thumbnail:hover .thumbnail-img {
+    transform: scale(1.05);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.stream-thumbnail:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.play-button {
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.stream-thumbnail:hover .play-button {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.live-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff0000;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.stream-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.stream-info h2 {
+    color: #fff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.stream-info p {
+    color: #ccc;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.watch-live-btn {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #dc143c, #8b0000);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+}
+
+.watch-live-btn:hover {
+    background: linear-gradient(135deg, #ff1744, #c62828);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.live-indicator {
+    width: 10px;
+    height: 10px;
+    background: #00ff00;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Alternative embed container */
+.embed-container {
+    max-width: 1200px;
+    margin: 30px auto 0;
+}
+
+.try-embed-btn {
+    display: block;
+    margin: 20px auto;
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.try-embed-btn:hover {
+    background: #555;
+}
+
+.video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* News content */
+.news-content {
+    padding: 40px 20px;
+    background: #333333;
+}
+
+.news-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-item {
+    background: #404040;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #dc143c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.news-item h3 {
+    color: #dc143c;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.news-item p {
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 2px solid #dc143c;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .main-headline {
+        font-size: 2em;
+    }
+    
+    .breaking-news {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .breaking-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .main-content {
+        padding-top: 80px;
+    }
+    
+    .live-stream-card {
+        margin: 0 15px;
+    }
+    
+    .stream-thumbnail {
+        height: 200px;
+    }
+    
+    .stream-info {
+        padding: 20px;
+    }
+    
+    .stream-info h2 {
+        font-size: 1.5em;
+    }
+    
+    .watch-live-btn {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .headlines-section {
+        padding: 20px 15px;
+    }
+    
+    .main-headline {
+        font-size: 1.8em;
+    }
+    
+    .ticker-content {
+        font-size: 1em;
+    }
+    
+    .stream-thumbnail {
+        height: 180px;
+    }
+    
+    .stream-info {
+        padding: 15px;
+    }
+    
+    .stream-info h2 {
+        font-size: 1.4em;
+    }
+    
+    .watch-live-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dc143c;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b0000;
+}
