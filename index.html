@@ -13,26 +13,42 @@ body{
     font-family:Arial;
 }
 
-/* container */
+/* TV container */
 
 .video-container{
-    position:relative;
-    width:100%;
+    position:fixed;
+    width:100vw;
     height:100vh;
     overflow:hidden;
 }
 
-/* zoomed youtube video */
+/* youtube video */
 
 .video-container iframe{
     position:absolute;
     top:50%;
     left:50%;
-    width:120vw;
-    height:120vh;
-    transform:translate(-50%,-50%) scale(1.2);
+    width:177.78vh;
+    height:100vh;
+    transform:translate(-50%,-50%);
     border:none;
-    pointer-events:none; /* hides youtube controls */
+}
+
+/* MOBILE TV MODE */
+
+@media screen and (max-width:768px){
+
+.video-container{
+    width:100vh;
+    height:100vw;
+    transform:rotate(90deg);
+    transform-origin:center;
+    top:50%;
+    left:50%;
+    margin-top:-50vw;
+    margin-left:-50vh;
+}
+
 }
 
 /* logo */
@@ -45,10 +61,25 @@ body{
 }
 
 .logo img{
-    width:130px;
+    width:120px;
 }
 
-/* breaking label */
+/* sound button */
+
+.sound-btn{
+    position:absolute;
+    top:80px;
+    left:20px;
+    z-index:10;
+    background:red;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* breaking */
 
 .breaking{
     position:absolute;
@@ -59,22 +90,6 @@ body{
     padding:10px 20px;
     font-weight:bold;
     z-index:6;
-}
-/* Mobile landscape view */
-
-@media screen and (max-width:768px) and (orientation:portrait){
-
-body{
-    transform:rotate(90deg);
-    transform-origin:left top;
-    width:100vh;
-    height:100vw;
-    overflow:hidden;
-    position:absolute;
-    top:100%;
-    left:0;
-}
-
 }
 
 /* ticker */
@@ -90,29 +105,11 @@ body{
     padding:10px 0;
     overflow:hidden;
 }
-.sound-btn{
-    position:absolute;
-    top:90px;
-    left:20px;
-    z-index:10;
-    background:red;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    font-size:18px;
-    cursor:pointer;
-}
 
 .ticker-text{
     display:inline-block;
     white-space:nowrap;
-    animation:scroll 20s linear infinite;
-}
-.video-container{
-    position:fixed;
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
+    animation:scroll 30s linear infinite;
 }
 
 @keyframes scroll{
@@ -128,12 +125,12 @@ body{
 <div class="video-container">
 
 <iframe
-src="https://www.youtube.com/embed/sIv6YmBeO3Q?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1"
+src="https://www.youtube.com/embed/sIv6YmBeO3Q?autoplay=1&mute=1&playsinline=1&controls=0&rel=0&modestbranding=1"
 allow="autoplay"
 allowfullscreen>
 </iframe>
-<button class="sound-btn" onclick="unmute()">🔊</button>
 
+<button class="sound-btn" onclick="unmute()">🔊</button>
 
 <div class="logo">
 <img src="logo.jpeg">
@@ -148,7 +145,7 @@ wintage developers |
 Best Business Software Service provider | 
 @Guntur | 
 New technology , Highly Scalable |
-Contact +91 7386055404|
+Contact +91 7386055404 |
 Email: wintagedevelopers4@gmail.com
 
 </div>
@@ -156,13 +153,14 @@ Email: wintagedevelopers4@gmail.com
 
 </div>
 
-</body>
-</html>
-
-
 <script>
+
 function unmute(){
 document.querySelector("iframe").src =
 "https://www.youtube.com/embed/sIv6YmBeO3Q?autoplay=1&controls=0";
 }
+
 </script>
+
+</body>
+</html>

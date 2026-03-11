@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset and base styles - optimized for performance */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +11,10 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    /* Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
 }
 
 /* Header with logo */
@@ -23,11 +27,18 @@ body {
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border-bottom-left-radius: 15px;
+    /* Hardware acceleration */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
+    /* Hardware acceleration */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .logo {
@@ -35,6 +46,8 @@ body {
     width: auto;
     max-width: 200px;
     object-fit: contain;
+    /* Image optimizations */
+    image-rendering: crisp-edges;
 }
 
 /* Main content */
@@ -42,11 +55,15 @@ body {
     padding-top: 100px;
 }
 
-/* Headlines section */
+/* Headlines section - optimized */
 .headlines-section {
     background: linear-gradient(135deg, #dc143c, #8b0000);
     padding: 30px 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
 .headlines-container {
@@ -61,6 +78,9 @@ body {
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease-out;
+    /* Hardware acceleration */
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .breaking-news {
@@ -70,6 +90,9 @@ body {
     margin-bottom: 20px;
     font-size: 1.2em;
     animation: fadeInUp 1s ease-out 0.3s both;
+    /* Hardware acceleration */
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .breaking-label {
@@ -80,13 +103,17 @@ body {
     margin-right: 15px;
     border-radius: 5px;
     animation: pulse 2s infinite;
+    /* Hardware acceleration and performance */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
 .breaking-text {
     font-weight: 500;
 }
 
-/* News ticker */
+/* News ticker - heavily optimized */
 .news-ticker {
     background: rgba(0, 0, 0, 0.7);
     padding: 15px;
@@ -94,21 +121,32 @@ body {
     overflow: hidden;
     white-space: nowrap;
     animation: fadeInUp 1s ease-out 0.6s both;
+    /* Performance optimization */
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
 .ticker-content {
     display: inline-block;
     animation: scroll 30s linear infinite;
     font-size: 1.1em;
+    /* Hardware acceleration for smooth animation */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style;
 }
 
-/* Video section */
+/* Video section - optimized */
 .video-section {
     padding: 40px 20px;
     background: #2a2a2a;
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-/* Live Stream Card */
+/* Live Stream Card - optimized */
 .live-stream-card {
     max-width: 800px;
     margin: 0 auto;
@@ -116,11 +154,18 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hardware acceleration */
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
 }
 
-.live-stream-card:hover {
-    transform: translateY(-5px);
+/* Optimize hover effects for performance */
+@media (hover: hover) {
+    .live-stream-card:hover {
+        transform: translateZ(0) translateY(-5px);
+    }
 }
 
 .stream-thumbnail {
@@ -129,17 +174,25 @@ body {
     height: 300px;
     background: #000;
     overflow: hidden;
+    /* Performance optimization */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .thumbnail-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hardware acceleration */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-.stream-thumbnail:hover .thumbnail-img {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .stream-thumbnail:hover .thumbnail-img {
+        transform: translateZ(0) scale(1.05);
+    }
 }
 
 .play-overlay {
@@ -152,21 +205,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hardware acceleration */
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
-.stream-thumbnail:hover .play-overlay {
-    background: rgba(0, 0, 0, 0.5);
+@media (hover: hover) {
+    .stream-thumbnail:hover .play-overlay {
+        background: rgba(0, 0, 0, 0.5);
+    }
 }
 
 .play-button {
     opacity: 0.9;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hardware acceleration */
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
-.stream-thumbnail:hover .play-button {
-    opacity: 1;
-    transform: scale(1.1);
+@media (hover: hover) {
+    .stream-thumbnail:hover .play-button {
+        opacity: 1;
+        transform: translateZ(0) scale(1.1);
+    }
 }
 
 .live-badge {
@@ -319,24 +382,24 @@ body {
     border-top: 2px solid #dc143c;
 }
 
-/* Animations */
+/* Optimized Animations - using transform3d for hardware acceleration */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translate3d(0, 30px, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes pulse {
     0%, 100% {
-        transform: scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
     }
     50% {
-        transform: scale(1.05);
+        transform: translate3d(0, 0, 0) scale(1.05);
     }
 }
 
@@ -349,76 +412,86 @@ body {
     }
 }
 
-/* Responsive design */
+/* Enhanced Responsive design - mobile-first horizontal optimization */
+
+/* Reduce animations on mobile and slower devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01s !important;
+        transition-duration: 0.01s !important;
+    }
+}
+
+/* Mobile-first horizontal optimization */
 @media (max-width: 768px) {
+    /* Force landscape view for mobile portrait users */
+    @media (orientation: portrait) {
+        body {
+            transform: rotate(90deg);
+            transform-origin: left top;
+            width: 100vh;
+            height: 100vw;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            /* Performance optimization for rotation */
+            will-change: transform;
+            -webkit-transform: rotate(90deg);
+        }
+    }
+    
+    /* Reduce animation complexity on mobile */
+    .ticker-content {
+        animation-duration: 45s; /* Optimized for horizontal mobile view */
+    }
+    
+    .pulse, .breaking-label {
+        animation-duration: 3s; /* Slower pulse on mobile */
+    }
+    
     .header {
-        padding: 15px;
+        padding: 10px 15px; /* Optimized for horizontal mobile */
+        backdrop-filter: none; /* Remove expensive backdrop filter on mobile */
+        background: rgba(0, 0, 0, 0.9);
     }
     
     .logo {
-        height: 40px;
+        height: 35px; /* Smaller for horizontal mobile view */
     }
     
     .main-headline {
-        font-size: 2em;
+        font-size: 1.8em; /* Optimized for horizontal mobile */
+        animation-duration: 0.8s;
     }
     
     .breaking-news {
-        flex-direction: column;
+        flex-direction: row; /* Keep horizontal for landscape mobile */
         text-align: center;
+        animation-duration: 0.8s;
     }
     
     .breaking-label {
-        margin-right: 0;
-        margin-bottom: 10px;
+        margin-right: 15px; /* Maintain spacing in horizontal view */
+        margin-bottom: 0;
+        padding: 4px 12px; /* Smaller for mobile */
     }
     
     .news-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
     }
     
     .main-content {
-        padding-top: 80px;
+        padding-top: 70px; /* Less padding for horizontal mobile */
     }
     
     .live-stream-card {
-        margin: 0 15px;
+        margin: 0 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
     
     .stream-thumbnail {
-        height: 200px;
-    }
-    
-    .stream-info {
-        padding: 20px;
-    }
-    
-    .stream-info h2 {
-        font-size: 1.5em;
-    }
-    
-    .watch-live-btn {
-        padding: 12px 25px;
-        font-size: 1.1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .headlines-section {
-        padding: 20px 15px;
-    }
-    
-    .main-headline {
-        font-size: 1.8em;
-    }
-    
-    .ticker-content {
-        font-size: 1em;
-    }
-    
-    .stream-thumbnail {
-        height: 180px;
+        height: 160px; /* Optimized for horizontal mobile */
     }
     
     .stream-info {
@@ -426,12 +499,107 @@ body {
     }
     
     .stream-info h2 {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
     
     .watch-live-btn {
         padding: 10px 20px;
         font-size: 1em;
+        background: #dc143c; /* Solid color for better performance */
+    }
+    
+    /* Optimize ticker for horizontal mobile view */
+    .ticker {
+        font-size: 16px;
+        padding: 6px 0;
+    }
+    
+    .sound-btn {
+        top: 50px;
+        left: 8px;
+        font-size: 14px;
+        padding: 10px 12px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    /* Disable hover effects on mobile */
+    .live-stream-card:hover,
+    .stream-thumbnail:hover .thumbnail-img,
+    .stream-thumbnail:hover .play-overlay,
+    .stream-thumbnail:hover .play-button,
+    .news-item:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Very small screens - still optimized for horizontal view */
+    .headlines-section {
+        padding: 15px 10px;
+    }
+    
+    .main-headline {
+        font-size: 1.6em; /* Smaller for very small horizontal screens */
+    }
+    
+    .ticker-content {
+        font-size: 0.9em; /* Smaller text for tiny screens */
+        animation-duration: 50s; /* Even slower on small screens */
+    }
+    
+    .stream-thumbnail {
+        height: 140px; /* Smaller for tiny horizontal screens */
+    }
+    
+    .stream-info {
+        padding: 12px;
+    }
+    
+    .stream-info h2 {
+        font-size: 1.2em;
+    }
+    
+    .watch-live-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+        background: #dc143c;
+        box-shadow: none;
+    }
+    
+    .logo {
+        height: 30px; /* Very small for tiny screens */
+    }
+    
+    .sound-btn {
+        top: 40px;
+        left: 5px;
+        font-size: 12px;
+        padding: 8px 10px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+    
+    /* Ensure rotation still works on very small screens */
+    @media (orientation: portrait) {
+        body {
+            transform: rotate(90deg);
+            transform-origin: left top;
+            width: 100vh;
+            height: 100vw;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+    }
+}
+
+/* Performance hints for browsers */
+@media (max-width: 768px) {
+    /* Suggest browser optimizations */
+    * {
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
     }
 }
 
